@@ -19,7 +19,15 @@ body {
     margin-top: 24px;
 }
 
-.pass-btn, .fail-btn {
+.reset-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px; /* Matches the .button-group gap */
+}
+
+.pass-btn,
+.fail-btn,
+.reset-btn {
     font-weight: bold;
     font-size: 1.2em;
     padding: 12px 32px;
@@ -27,9 +35,11 @@ body {
     border-width: 3px;
     border-style: solid;
     background: #232526;
-    color: inherit;
     cursor: pointer;
-    transition: box-shadow 0.2s, background 0.2s;
+    transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+    min-width: 120px; /* Ensures all buttons are the same width */
+    min-height: 48px; /* Ensures all buttons are the same height */
+    box-sizing: border-box;
 }
 
 .pass-btn {
@@ -42,7 +52,27 @@ body {
     border-color: #ff5252;
 }
 
-.pass-btn:hover, .fail-btn:hover {
+.reset-btn {
+    color: #fff;
+    border-color: #fff;
+    padding: 10px 32px; /* Slightly less vertical padding */
+    margin-bottom: 0.5rem;
+}
+
+.pass-btn:hover {
     box-shadow: 0 0 8px rgba(0,0,0,0.3);
-    background: #222;
+    background: #4caf50;
+    color: #fff;
+}
+
+.fail-btn:hover {
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    background: #ff5252;
+    color: #fff;
+}
+
+.reset-btn:hover {
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    background: #fff;
+    color: #232526;
 }
