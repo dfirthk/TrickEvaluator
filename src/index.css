@@ -3,5 +3,46 @@ body {
     Arial, sans-serif;
   margin: auto;
   max-width: 38rem;
-  padding: 2rem;
+  padding: 2rem 0.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* horizontal centering */
+  justify-content: flex-start; /* no vertical centering */
+  background: #181a1b;
+  color: #f1f1f1;
+}
+
+.button-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.pass-btn, .fail-btn {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 12px 32px;
+    border-radius: 8px;
+    border-width: 3px;
+    border-style: solid;
+    background: #232526;
+    color: inherit;
+    cursor: pointer;
+    transition: box-shadow 0.2s, background 0.2s;
+}
+
+.pass-btn {
+    color: #4caf50;
+    border-color: #4caf50;
+}
+
+.fail-btn {
+    color: #ff5252;
+    border-color: #ff5252;
+}
+
+.pass-btn:hover, .fail-btn:hover {
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    background: #222;
 }

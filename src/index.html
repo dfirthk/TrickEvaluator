@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hello World!</title>
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Trick Evaluator</title>
+		<link rel="stylesheet" href="index.css" />
+		<script src="render.js"></script>
+	</head>
+	<body>
+		<h1>Trick Evaluator</h1>
+		<div class="button-group">
+			<button class="pass-btn"><span>Pass</span></button>
+			<button class="fail-btn"><span>Fail</span></button>
+		</div>
+		<div id="results" style="margin-top: 2rem; text-align: center">
+			<div id="fraction">0/0</div>
+			<div id="percentage">Success Percentage: 0%</div>
+		</div>
+		<script>
+			let success = 0;
+			let attempts = 0;
+
+			function updateResults() {
+				const percent =
+					attempts === 0 ? 0 : Math.round((success / attempts) * 100);
+				document.getElementById(
+					'fraction'
+				).textContent = `${success}/${attempts}`;
+				document.getElementById(
+					'percentage'
+				).textContent = `Success Percentage: ${percent}%`;
+			}
+
+			document.querySelector('.pass-btn').addEventListener('click', () => {
+				success++;
+				attempts++;
+				updateResults();
+			});
+
+			document.querySelector('.fail-btn').addEventListener('click', () => {
+				attempts++;
+				updateResults();
+			});
+
+			updateResults();
+		</script>
+	</body>
 </html>
