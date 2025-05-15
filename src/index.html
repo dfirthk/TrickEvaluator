@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<div class="button-group">
-			<button class="pass-btn"><span>Pass</span></button>
+			<button class="pass-btn"><span>Success</span></button>
 			<button class="fail-btn"><span>Fail</span></button>
 		</div>
 		<div id="results" style="margin-top: 2rem; text-align: center">
@@ -51,6 +51,29 @@
 				success = 0;
 				attempts = 0;
 				updateResults();
+			});
+
+			document.addEventListener('keydown', (event) => {
+				if (
+					event.key === 's' ||
+					event.key === 'S' ||
+					event.key === 'ArrowLeft'
+				) {
+					success++;
+					attempts++;
+					updateResults();
+				} else if (
+					event.key === 'f' ||
+					event.key === 'F' ||
+					event.key === 'ArrowRight'
+				) {
+					attempts++;
+					updateResults();
+				} else if (event.key === 'Escape') {
+					success = 0;
+					attempts = 0;
+					updateResults();
+				}
 			});
 
 			updateResults();
